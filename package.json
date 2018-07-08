@@ -1,0 +1,27 @@
+{
+  "name": "personal-library",
+  "version": "1.0.0",
+  "description": "Peronsal Library applicaiton which allows you to add,view, and delete books.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hcuffy/personal-library.git"
+  },
+  "author": "Henry Cuffy",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hcuffy/personal-library/issues"
+  },
+  "homepage": "https://github.com/hcuffy/personal-library#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "ejs": "^2.6.1",
+    "express": "^4.16.3",
+    "helmet": "^3.12.1",
+    "mongoose": "^5.1.7"
+  }
+}
