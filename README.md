@@ -4,7 +4,7 @@ This personal library app will allow you to add books to a library and comment o
 
 Follow this README in order to properly run this application.
 
-Live App:
+Live App: Coming soon.
 
 ## Prerequisites for Local Installation.
 
