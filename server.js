@@ -17,7 +17,8 @@ app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json('*/*'));
-app.use(helmet.xssFilter());
+app.use(helmet.noCache());
+app.use(helmet.hidePoweredBy({ setTo: 'PHP 4.2.0' }));
 app.use(function(req, res, next) {
 	res.header('Access-Control-Allow-Origin', '*');
 	res.header(

@@ -3,10 +3,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link href="/main.css" rel="stylesheet" type="text/css">
+    <title>Homepage</title>
   </head>
   <body>
-    <p>Hello World</p>
+    <div class="container">
+      <h3>Your personal Library</h3>
+      <div class="complete-form">
+        <h5>Add a book to your library.</h3>
+        <form id='new-book-form' action="/new/book/" method="post">
+          <div class="form-group">
+            <label for="book-title"> Title:</label>
+            <input class="form-control issue" id="book-title" type="text" name="title" placeholder="Add Book" required>
+          </div>
+          <button type="submit" class="btn btn-primary">Add Book</button>
+        </form>
+      </div>
+      <div class="book-retrieval">
+        <button type="button" class="btn btn-secondary single-book" id="single-btn">Get Book</button>
+        <button type="button" class="btn btn-secondary multiple-books" id="multi-btn">All Books</button>
+      </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="/main.js"></script>
   </body>
 
 </html>
