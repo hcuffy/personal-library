@@ -9,12 +9,12 @@
   </head>
   <body>
     <div class="book-left">
-      <span><%= book.title %></span>
+      <span><%= book.title %></span><br>
       <% if(book.comments.length == 0){ %>
         <span>No Comments</span>
         <% }else{ %>
           <% for (var i = 0; i < book.comments.length; i++) { %>
-            <span><%= book.comments[i] %></span>
+            <span><%= book.comments[i] %></span><br>
             <% } %>
               <% } %>
 
