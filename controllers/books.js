@@ -22,3 +22,18 @@ exports.getABook = (req, res, next) => {
 		res.render('single-book', { book });
 	});
 };
+
+exports.addComment = (req, res, next) => {
+	Book.findByIdAndUpdate(
+		{ _id: req.params.id },
+		{ $push: { comments: req.body.comment } },
+		{ new: true },
+		function(err, book) {
+			if (err) {
+				console.log('Database Error', err);
+				return next(err);
+			}
+			res.render('single-book', { book });
+		}
+	);
+};

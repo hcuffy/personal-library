@@ -23,19 +23,16 @@ $(document).ready(function() {
 
 	$('.comment').click(function() {
 		let id = this.id;
-		console.log(id);
-		// $.ajax({
-		// 	url: '/issues/' + project + '/' + id,
-		// 	type: 'DELETE',
-		// 	data: {
-		// 		id: id
-		// 	},
-		// 	success: function(result) {
-		// 		window.location.reload();
-		// 	},
-		// 	error: function() {
-		// 		alert('Issue ' + id + ' could not be deleted.');
-		// 	}
-		// });
+		$.ajax({
+			url: '/add-comment/' + id,
+			type: 'POST',
+			data: $('.comment-form').serialize(),
+			success: function(result) {
+				window.location.reload();
+			},
+			error: function() {
+				alert(id + ' could not be updated.');
+			}
+		});
 	});
 });

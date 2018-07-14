@@ -10,19 +10,20 @@
   <body>
     <div class="book-left">
       <span><%= book.title %></span>
-      <% for (var i = 0; i < book.comments.length; i++) { %>
-        <% if(book.comments.length == 0){ %>
-          <span>No Comments</span>
-          <% }else{ %>
-            <span><%= book.comments %></span>
+      <% if(book.comments.length == 0){ %>
+        <span>No Comments</span>
+        <% }else{ %>
+          <% for (var i = 0; i < book.comments.length; i++) { %>
+            <span><%= book.comments[i] %></span>
             <% } %>
               <% } %>
+
     </div>
     <div class="book-right">
-      <form class="comment-form" action="/add-comment/" method="post">
+      <form class="comment-form">
         <div class="form-group">
           <label for="comment">Comment:</label>
-          <textarea class="form-control" id="comment" rows="3" name="Comment" placeholder="New Comments" required></textarea>
+          <textarea class="form-control" id="comment" rows="3" name="comment" placeholder="New Comments" required></textarea>
         </div>
         <button id="<%= book.id %>" type="button" class="btn btn-info comment">Add Comment</button>
       </form>
@@ -35,7 +36,7 @@
       </form>
     </div>
 
-    <button type="button" class="btn btn-secondary back-btn">&#x25C0; Back</button>
+    <a href="/" class="a_border"><button type="button" class="btn btn-secondary back-btn">&#x25C0; Back</button></a>
     <button type="button" class="btn btn-secondary multi-btn">All Books</button>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script type="text/javascript" src="/main.js"></script>
