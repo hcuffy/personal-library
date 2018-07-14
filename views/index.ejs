@@ -21,8 +21,14 @@
         </form>
       </div>
       <div class="book-retrieval">
-        <button type="button" class="btn btn-secondary single-book" id="single-btn">Get Book</button>
-        <button type="button" class="btn btn-secondary multiple-books" id="multi-btn">All Books</button>
+        <form id='new-book-form' action="/book/" method="get">
+          <div class="form-group">
+            <label for="single-title"> Get a book:</label>
+            <input class="form-control issue" id="single-title" type="text" name="title" placeholder="Book ID" required>
+          </div>
+          <button type="submit" type="button" class="btn btn-secondary single-book" class="single-btn">Get Book</button>
+        </form>
+        <button type="button" class="btn btn-secondary multiple-books" class="multi-btn">All Books</button>
       </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
