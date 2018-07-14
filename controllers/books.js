@@ -15,7 +15,7 @@ exports.addBook = (req, res, next) => {
 };
 
 exports.getABook = (req, res, next) => {
-	Book.findById(req.params.id, function(err, book) {
+	Book.findById(req.query.id, function(err, book) {
 		if (err) {
 			return err;
 		}

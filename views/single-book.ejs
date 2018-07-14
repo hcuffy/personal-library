@@ -3,10 +3,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link href="/main.css" rel="stylesheet" type="text/css">
     <title>Book</title>
   </head>
   <body>
+    <div class="book-left">
+      <span><%= book.title %></span>
+      <% for (var i = 0; i < book.comments.length; i++) { %>
+        <% if(book.comments.length == 0){ %>
+          <span>No Comments</span>
+          <% }else{ %>
+            <span><%= book.comments %></span>
+            <% } %>
+              <% } %>
+    </div>
+    <div class="book-right">
+      <form class="comment-form" action="/add-comment/" method="post">
+        <div class="form-group">
+          <label for="comment">Comment:</label>
+          <textarea class="form-control" id="comment" rows="3" name="Comment" placeholder="New Comments" required></textarea>
+        </div>
+        <button id="<%= book.id %>" type="button" class="btn btn-info comment">Add Comment</button>
+      </form>
+      <form class="new-book-form" action="/get-book/" method="get">
+        <div class="form-group">
+          <label for="single-title"> Get a book:</label>
+          <input class="form-control issue" id="single-title" type="text" name="id" placeholder="Book ID*" required>
+        </div>
+        <button type="submit" type="button" class="btn btn-secondary single-btn">Get Book</button>
+      </form>
+    </div>
 
+    <button type="button" class="btn btn-secondary back-btn">&#x25C0; Back</button>
+    <button type="button" class="btn btn-secondary multi-btn">All Books</button>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="/main.js"></script>
   </body>
 
 </html>
