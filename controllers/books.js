@@ -37,3 +37,11 @@ exports.addComment = (req, res, next) => {
 		}
 	);
 };
+
+exports.getAllBooks = (req, res, next) => {
+	Book.find({}, (err, books) => {
+		if (err) return next(err);
+
+		res.render('all-books', { books });
+	});
+};
