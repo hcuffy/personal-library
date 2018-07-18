@@ -4,6 +4,7 @@ const bookController = require('../controllers/books');
 
 router.post('/add-comment/:id', bookController.addComment);
 router.post('/new/book/', bookController.addBook);
+router.get('/get-all-books/', bookController.getAllBooks);
 router.get('/get-book/', bookController.getABook);
 router.get('/', (req, res) => {
 	res.render('index');
