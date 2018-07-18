@@ -15,10 +15,12 @@ exports.addBook = (req, res, next) => {
 };
 
 exports.getABook = (req, res, next) => {
+
 	Book.findById(req.query.id, function(err, book) {
 		if (err) {
 			return err;
 		}
+
 		res.render('single-book', { book });
 	});
 };
@@ -30,7 +32,6 @@ exports.addComment = (req, res, next) => {
 		{ new: true },
 		function(err, book) {
 			if (err) {
-				console.log('Database Error', err);
 				return next(err);
 			}
 			res.render('single-book', { book });
@@ -40,8 +41,10 @@ exports.addComment = (req, res, next) => {
 
 exports.getAllBooks = (req, res, next) => {
 	Book.find({}, (err, books) => {
-		if (err) return next(err);
-
+		if (err) {
+			return next(err);
+		}
 		res.render('all-books', { books });
 	});
+
 };
