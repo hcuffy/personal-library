@@ -8,34 +8,13 @@
     <title>Book</title>
   </head>
   <body>
-    <div class="book-left">
-      <span><%= book.title %></span><br>
-      <% if(book.comments.length == 0){ %>
-        <span>No Comments</span>
-        <% }else{ %>
-          <% for (var i = 0; i < book.comments.length; i++) { %>
-            <span><%= book.comments[i] %></span><br>
+
+    <div class="all-books">
+          <% for (var i = 0; i < books.length; i++) { %>
+            <span><%= book[i].title %> : </span><span><%= book[i].comments.length%> Comments</span><br>
+            <button  id="<%= book[i].id %>" type="button" class="btn btn-info single-btn">Get Book</button>
             <% } %>
-              <% } %>
-
-    </div>
-    <div class="book-right">
-      <form class="comment-form">
-        <div class="form-group">
-          <label for="comment">Comment:</label>
-          <textarea class="form-control" id="comment" rows="3" name="comment" placeholder="New Comments" required></textarea>
-        </div>
-        <button id="<%= book.id %>" type="button" class="btn btn-info comment">Add Comment</button>
-      </form>
-      <form class="new-book-form" action="/get-book/" method="get">
-        <div class="form-group">
-          <label for="single-title"> Get a book:</label>
-          <input class="form-control issue" id="single-title" type="text" name="id" placeholder="Book ID*" required>
-        </div>
-        <button type="submit" type="button" class="btn btn-secondary single-btn">Get Book</button>
-      </form>
-    </div>
-
+      </div>
     <a href="/" class="a_border"><button type="button" class="btn btn-secondary back-btn">&#x25C0; Back</button></a>
     <button type="button" class="btn btn-secondary multi-btn">All Books</button>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>

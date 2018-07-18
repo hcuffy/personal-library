@@ -21,7 +21,7 @@ $(document).ready(function() {
 		});
 	}
 
-	$('.comment').click(function() {
+	$('.comment-btn').click(function() {
 		let id = this.id;
 		$.ajax({
 			url: '/add-comment/' + id,
