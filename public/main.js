@@ -35,4 +35,17 @@ $(document).ready(function() {
 			}
 		});
 	});
+
+	$('.multi-btn').click(function() {
+		$.ajax({
+			url: '/get-all-books/',
+			type: 'GET',
+			success: function(result) {
+				window.location.reload();
+			},
+			error: function() {
+				alert(id + ' could not be updated.');
+			}
+		});
+	});
 });
