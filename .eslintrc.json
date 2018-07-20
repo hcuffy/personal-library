@@ -43,6 +43,10 @@
     "no-unused-vars": ["warn", {
       "vars": "all",
       "args": "none"
+    }],
+    "arrow-spacing": ["error", {
+      "before": true,
+      "after": true
     }]
 
   }
