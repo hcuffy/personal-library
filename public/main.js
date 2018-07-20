@@ -1,40 +1,40 @@
 $(document).ready(function() {
-	let addField = document.getElementById('book-title');
+	let addField = document.getElementById('book-title')
 	if (addField) {
 		addField.addEventListener('invalid', function() {
-			this.setCustomValidity('Please enter a title.');
-		});
+			this.setCustomValidity('Please enter a title.')
+		})
 
 		addField.addEventListener('input', function() {
-			this.setCustomValidity('');
-		});
+			this.setCustomValidity('')
+		})
 	}
 
-	let getField = document.getElementById('single-title');
+	let getField = document.getElementById('single-title')
 	if (getField) {
 		getField.addEventListener('invalid', function() {
-			this.setCustomValidity('Please enter an id.');
-		});
+			this.setCustomValidity('Please enter an id.')
+		})
 
 		getField.addEventListener('input', function() {
-			this.setCustomValidity('');
-		});
+			this.setCustomValidity('')
+		})
 	}
 
 	$('.comment-btn').click(function() {
-		let id = this.id;
+		let id = this.id
 		$.ajax({
 			url: '/add-comment/' + id,
 			type: 'POST',
 			data: $('.comment-form').serialize(),
 			success: function(result) {
-				window.location.reload();
+				window.location.reload()
 			},
 			error: function() {
-				alert('Could not add comment.');
+				alert('Could not add comment.')
 			}
-		});
-	});
+		})
+	})
 
 	$('.multi-btn').click(function() {
 
@@ -42,11 +42,11 @@ $(document).ready(function() {
 			url: '/all-books/',
 			type: 'GET',
 			success: function(result) {
-					document.location.href = '/all-books/';
+				document.location.href = '/all-books/'
 			},
 			error: function() {
-				alert('Could not get the books.');
+				alert('Could not get the books.')
 			}
-		});
-	});
-});
+		})
+	})
+})

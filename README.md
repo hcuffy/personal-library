@@ -10,25 +10,25 @@ Live App: Coming soon.
 
 You will need the following things properly installed on your computer.
 
-- [Git](https://git-scm.com/)
-- [Node.js](https://nodejs.org/)
-- [Google Chrome](https://google.com/chrome/)
+-   [Git](https://git-scm.com/)
+-   [Node.js](https://nodejs.org/)
+-   [Google Chrome](https://google.com/chrome/)
 
 ## Installation
 
 CLIENT
 
-- `git clone <repository-url>` this repository
-- `cd personal-library`
-- `yarn install`
+-   `git clone <repository-url>` this repository
+-   `cd personal-library`
+-   `yarn install`
 
 DATABASE
 
-- `Mongo DB`  
-  Installed locally.
+-   `Mongo DB`  
+    Installed locally.
 
 ## Running / Development
 
-- DB - run `Mongod`
-- Backend run `node server.js`
-- Visit your app at [http://localhost:3000](http://localhost:3000).
+-   DB - run `Mongod`
+-   Backend run `node server.js`
+-   Visit your app at <http://localhost:3000>.

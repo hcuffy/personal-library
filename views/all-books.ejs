@@ -10,16 +10,16 @@
   <body>
 
     <div class="all-books">
-          <% for (var i = 0; i < books.length; i++) { %>
-            <form class="new-book-form" action="/single-book/" method="get">
-              <div class="form-group">
-                <span><%= books[i].title %> : </span> <span><%= books[i].comments.length%> Comments</span><br>
-                <input class="form-control issue" type="hidden" name="id" value="<%= books[i].id %>" required>
-              </div>
-              <button type="submit" type="button" class="btn btn-info single-btn">Get Book</button>
-            </form>
-            <% } %>
-      </div>
+      <% for (var i = 0; i < books.length; i++) { %>
+        <form class="new-book-form" action="/single-book/" method="get">
+          <div class="form-group">
+            <span><%= books[i].title %> : </span> <span><%= books[i].comments.length%> Comments</span><br>
+            <input class="form-control issue" type="hidden" name="id" value="<%= books[i].id %>" required>
+          </div>
+          <button type="submit" type="button" class="btn btn-info single-btn">Get Book</button>
+        </form>
+        <% } %>
+    </div>
     <a href="/" class="a_border"><button type="button" class="btn btn-secondary back-btn">&#x25C0; Back</button></a>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script type="text/javascript" src="/main.js"></script>
