@@ -93,3 +93,35 @@ $('.delete-btn').click(function() {
 		}
 	})
 })
+
+
+$('.delete-all-btn').click(function() {
+	$.ajax({
+		url: '/remove-all/',
+		type: 'DELETE',
+		success: function(result) {
+			$.confirm({
+				title: 'All books were deleted.',
+				content: result,
+				type: 'green',
+				typeAnimated: true,
+				buttons: {
+					ok: {
+						text: 'OK',
+						btnClass: 'btn-green',
+						action: function() {
+							document.location.href = '/'
+						}
+					}
+				}
+			})
+		},
+		error: function() {
+			$.alert({
+				title: 'Error!',
+				content: 'The books could not be deleted.',
+				type: 'red'
+			})
+		}
+	})
+})

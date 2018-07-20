@@ -10,37 +10,44 @@
 
   </head>
   <body>
-    <div class="book-left">
-      <span><%= book.title %></span><br>
-      <button id="<%= book.id %>" type="button" class="btn btn-danger delete-btn">Delete Book</button>
-      <% if(book.comments.length == 0){ %>
-        <span>No Comments</span>
-        <% }else{ %>
-          <% for (var i = 0; i < book.comments.length; i++) { %>
-            <span><%= book.comments[i] %></span><br>
-            <% } %>
+    <div class="container">
+      <h3 class="title">Title: <%= book.title %></h3>
+      <div class="book-left">
+        <% if(book.comments.length == 0){ %>
+          <div class="comment-section">No Comments</div>
+          <% }else{ %>
+            <% for (var i = 0; i < book.comments.length; i++) { %>
+              <div class="comment-section">
+                <%= book.comments[i] %>
+              </div><br>
               <% } %>
+                <% } %>
+                  <button id="<%= book.id %>" type="button" class="btn btn-danger delete-btn">Delete Book</button>
+      </div>
 
-    </div>
-    <div class="book-right">
-      <form class="comment-form">
-        <div class="form-group">
-          <label for="comment">Comment:</label>
-          <textarea class="form-control" id="comment" rows="3" name="comment" placeholder="New Comments" required></textarea>
-        </div>
-        <button id="<%= book.id %>" type="button" class="btn btn-info comment-btn">Add Comment</button>
-      </form>
-      <form class="new-book-form" action="/single-book/" method="get">
-        <div class="form-group">
-          <label for="single-title"> Get a book:</label>
-          <input class="form-control issue" id="single-title" type="text" name="id" placeholder="Book ID*" required>
-        </div>
-        <button type="submit" type="button" class="btn btn-secondary single-btn">Get Book</button>
-      </form>
+      <div class="book-right">
+        <form class="comment-form">
+          <div class="form-group">
+            <label for="comment">Comment:</label>
+            <textarea class="form-control" id="comment" rows="3" name="comment" placeholder="New Comments" required></textarea>
+          </div>
+          <button id="<%= book.id %>" type="button" class="btn btn-info comment-btn">Add Comment</button>
+        </form>
+        <form class="new-book-form" action="/single-book/" method="get">
+          <div class="form-group">
+            <h5>Get book by id.</h5>
+            <label for="single-title"> ID:</label>
+            <input class="form-control issue" id="single-title" type="text" name="id" placeholder="Book ID*" required>
+          </div>
+          <button type="submit" type="button" class="btn btn-secondary single-btn">Get Book</button>
+          <button type="button" class="btn btn-warning multi-btn">To All Books</button>
+        </form>
+        <a href="/" class="a_border"><button type="button" class="btn btn-secondary back-btn">&#x25C0; Back To Home</button></a>
+      </div>
     </div>
 
-    <a href="/" class="a_border"><button type="button" class="btn btn-secondary back-btn">&#x25C0; Back</button></a>
-    <button type="button" class="btn btn-secondary multi-btn">All Books</button>
+
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript" src="/main.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>

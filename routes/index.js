@@ -2,6 +2,8 @@ const express = require('express')
 const router = express.Router()
 const bookController = require('../controllers/books')
 
+
+router.delete('/remove-all/', bookController.removeAllBooks)
 router.delete('/remove/:id', bookController.removeBook)
 router.post('/add-comment/:id', bookController.addComment)
 router.post('/new/book/', bookController.addBook)

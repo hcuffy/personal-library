@@ -1,0 +1,39 @@
+body {
+  background: #f46242;
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.add-book-form {
+  width: 50%;
+  float: left;
+  padding-right: 10px;
+}
+
+.book-retrieval {
+  width: 50%;
+  float: right;
+  padding-left: 10px;
+}
+
+.book-left {
+  width: 50%;
+  float: left;
+  padding-right: 10px;
+}
+
+.book-right {
+  width: 50%;
+  float: right;
+  padding-left: 10px;
+}
+
+.comment-section {
+  width: 100%;
+  border-color: white;
+  border-width: 1px;
+  border-style: groove;
+}

@@ -18,13 +18,17 @@ exports.addBook = (req, res, next) => {
 
 exports.getABook = (req, res, next) => {
 
-	Book.findById(req.query.id, function (err, book) {
+	Book.findById(req.query.id, (err, book) => {
 		if (err) {
-			return err
-		 }
-		res.render('single-book', {
-			book
-		})
+			return next(err)
+		}
+		if (book == null){
+			res.render('index')
+		} else {
+			res.render('single-book', {
+				book
+			})
+		}
 	})
 }
 
@@ -38,7 +42,7 @@ exports.addComment = (req, res, next) => {
 	}, {
 		new: true
 	},
-	function (err, book) {
+	 (err, book) => {
 		if (err) {
 			return next(err)
 		}
@@ -63,6 +67,15 @@ exports.getAllBooks = (req, res, next) => {
 
 exports.removeBook = (req, res, next) => {
 	Book.findByIdAndRemove(req.params.id, err => {
+		if (err) {
+			return next(err)
+		}
+		res.end('success')
+	})
+}
+
+exports.removeAllBooks = (req, res, next) => {
+	Book.remove({}, err => {
 		if (err) {
 			return next(err)
 		}
