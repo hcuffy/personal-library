@@ -16,9 +16,10 @@
           <form class="all-book-form" action="/single-book/" method="get">
             <div class="form-group hidden-book">
               <b><span><%= books[i].title %> : </span></b> <span class "hidden-book"><%= books[i].comments.length%> Comments</span><br>
+              <span class "hidden-book"><b>Book ID:</b> <%= books[i].id%></span>
               <input class="form-control" type="hidden" name="id" value="<%= books[i].id %>" required>
             </div>
-            <button type="submit" type="button" class="btn btn-info get-single-btn">Get Book</button>
+            <button type="submit" type="button" class="btn btn-info get-single-btn">Show Book</button>
           </form>
           <% } %>
       </div>
