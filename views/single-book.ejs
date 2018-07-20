@@ -14,7 +14,7 @@
       <h3 class="title">Title: <%= book.title %></h3>
       <div class="book-left">
         <% if(book.comments.length == 0){ %>
-          <div class="comment-section">No Comments</div>
+          <div class="comment-section"> No comments to display </div>
           <% }else{ %>
             <% for (var i = 0; i < book.comments.length; i++) { %>
               <div class="comment-section">
@@ -28,7 +28,7 @@
       <div class="book-right">
         <form class="comment-form">
           <div class="form-group">
-            <label for="comment">Comment:</label>
+            <label for="comment">Comment on the book:</label>
             <textarea class="form-control" id="comment" rows="3" name="comment" placeholder="New Comments" required></textarea>
           </div>
           <button id="<%= book.id %>" type="button" class="btn btn-info comment-btn">Add Comment</button>
@@ -37,7 +37,7 @@
           <div class="form-group">
             <h5>Get book by id.</h5>
             <label for="single-title"> ID:</label>
-            <input class="form-control issue" id="single-title" type="text" name="id" placeholder="Book ID*" required>
+            <input class="form-control" id="single-title" type="text" name="id" placeholder="Book ID*" required>
           </div>
           <button type="submit" type="button" class="btn btn-secondary single-btn">Get Book</button>
           <button type="button" class="btn btn-warning multi-btn">To All Books</button>

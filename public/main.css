@@ -5,6 +5,7 @@ body {
 .title {
   text-align: center;
   margin-bottom: 50px;
+  padding-top: 10px;
 }
 
 .add-book-form {
@@ -36,4 +37,23 @@ body {
   border-color: white;
   border-width: 1px;
   border-style: groove;
+  margin-bottom: 5px;
+}
+
+.get-single-btn {
+  height: 20px;
+  line-height: 40%;
+  margin-bottom: 5px;
+}
+
+.all-book-form {
+  width: 40%;
+  border-color: white;
+  border-width: 1px;
+  border-style: groove;
+  padding-left: 10px;
+}
+
+.hidden-book {
+  margin: 0 0 0 0
 }
