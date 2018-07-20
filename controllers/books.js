@@ -21,7 +21,7 @@ exports.getABook = (req, res, next) => {
 	Book.findById(req.query.id, function (err, book) {
 		if (err) {
 			return err
-		 } 
+		 }
 		res.render('single-book', {
 			book
 		})
@@ -59,4 +59,13 @@ exports.getAllBooks = (req, res, next) => {
 		})
 	})
 
+}
+
+exports.removeBook = (req, res, next) => {
+	Book.findByIdAndRemove(req.params.id, err => {
+		if (err) {
+			return next(err)
+		}
+		res.end('success')
+	})
 }

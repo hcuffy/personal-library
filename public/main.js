@@ -31,7 +31,11 @@ $(document).ready(function() {
 				window.location.reload()
 			},
 			error: function() {
-				alert('Could not add comment.')
+				$.alert({
+					title: 'Error!',
+					content: 'Could not add comments.',
+					type: 'red'
+				})
 			}
 		})
 	})
@@ -45,8 +49,47 @@ $(document).ready(function() {
 				document.location.href = '/all-books/'
 			},
 			error: function() {
-				alert('Could not get the books.')
+				$.alert({
+					title: 'Error!',
+					content: 'Could not get the book.',
+					type: 'red'
+				})
 			}
 		})
+	})
+})
+
+$('.delete-btn').click(function() {
+	let id = this.id
+	$.ajax({
+		url: '/remove/' + id,
+		type: 'DELETE',
+		data: {
+			id: id
+		},
+		success: function(result) {
+			$.confirm({
+				title: 'The book was deleted.',
+				content: result,
+				type: 'green',
+				typeAnimated: true,
+				buttons: {
+					ok: {
+						text: 'OK',
+						btnClass: 'btn-green',
+						action: function() {
+							document.location.href = '/'
+						}
+					}
+				}
+			})
+		},
+		error: function() {
+			$.alert({
+				title: 'Error!',
+				content: 'The book (' + id + ') could not be deleted.',
+				type: 'red'
+			})
+		}
 	})
 })
