@@ -17,7 +17,6 @@ exports.addBook = (req, res, next) => {
 }
 
 exports.getABook = (req, res, next) => {
-
 	Book.findById(req.query.id, (err, book) => {
 		if (err) {
 			return next(err)
@@ -66,11 +65,15 @@ exports.getAllBooks = (req, res, next) => {
 }
 
 exports.removeBook = (req, res, next) => {
-	Book.findByIdAndRemove(req.params.id, err => {
+	Book.findByIdAndRemove(req.params.id, (err, book) => {
 		if (err) {
 			return next(err)
 		}
-		res.end('success')
+		if (book == null){
+			res.end('Could not find book for deletion')
+		} else {
+			res.end('success')
+		}
 	})
 }
 
