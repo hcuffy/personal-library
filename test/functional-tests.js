@@ -25,16 +25,16 @@ describe('tests', () =>  {
 			})
 	})
 
-	// it('A book should be added', (done) =>  {
-	// 	chai.request(server)
-	// 		.post('/new/book/')
-	// 		.set('content-type', 'application/x-www-form-urlencoded')
-	// 		.send({ title: 'test book', comment: ['test book'] })
-	// 		.end((err, res) => {
-	// 			assert.equal(res.status, 200)
-	// 			done()
-	// 		})
-	// })
+it('A book should be added', (done) =>  {
+	chai.request(server)
+		.post('/new/book/')
+		.set('content-type', 'application/x-www-form-urlencoded')
+		.send({ title: 'test book', comment: ['test book'] })
+		.end((err, res) => {
+			assert.equal(res.status, 200)
+			done()
+		})
+})
 
 	it('Should add comment', (done) =>  {
 		chai.request(server)
@@ -52,6 +52,15 @@ describe('tests', () =>  {
 			.delete('/remove/aaaa108ea4ce3b6071b13fff')
 			.end((err, res) => {
 				assert.equal(res.text, 'Could not find book for deletion')
+				done()
+			})
+	})
+
+	it('Remove all books', (done) =>  {
+		chai.request(server)
+			.delete('/remove-all/')
+			.end((err, res) => {
+				assert.equal(res.status, 200)
 				done()
 			})
 	})

@@ -78,7 +78,7 @@ exports.removeBook = (req, res, next) => {
 }
 
 exports.removeAllBooks = (req, res, next) => {
-	Book.remove({}, err => {
+	Book.remove({}, (err, book) => {
 		if (err) {
 			return next(err)
 		}
