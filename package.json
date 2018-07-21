@@ -4,7 +4,7 @@
   "description": "Peronsal Library applicaiton which allows you to add,view, and delete books.",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha",
     "start": "node server.js"
   },
   "repository": {
@@ -25,6 +25,9 @@
     "mongoose": "^5.1.7"
   },
   "devDependencies": {
-    "eslint": "^5.1.0"
+    "chai": "^4.1.2",
+    "chai-http": "^4.0.0",
+    "eslint": "^5.1.0",
+    "mocha": "^5.2.0"
   }
 }
