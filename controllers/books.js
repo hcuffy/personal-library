@@ -43,6 +43,7 @@ exports.getABook = (req, res, next) => {
 }
 
 exports.addComment = (req, res, next) => {
+	console.log(req.params.id + ' '+ req.body.comment)
 	Book.findByIdAndUpdate({
 		_id: req.params.id
 	}, {

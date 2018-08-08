@@ -25,7 +25,6 @@ describe('functional tests', () =>  {
 	// 		.set('content-type', 'application/x-www-form-urlencoded')
 	// 		.send({})
 	// 		.end((err, res) => {
-	// 			console.log(res.text)
 	// 			assert.equal(res.status, 200)
 	// 			assert.equal(res.text, 'Missing request title.')
 	// 			done()
@@ -54,13 +53,28 @@ describe('functional tests', () =>  {
 	// 		})
 	// })
 
-	it('should not get book without id', (done) =>  {
+	// it('should not get book without id', (done) =>  {
+	// 	chai.request(server)
+	// 		.get('/single-book/')
+	//     .query({})
+	// 		.end((err, res) => {
+	// 			assert.equal(res.status, 200)
+	// 			assert.equal(res.text, 'No id was was given.')
+	// 			done()
+	// 		})
+	// })
+
+	it('should add comment', (done) =>  {
+		let id = '5b6a7db30469c04f7d3164e7'
 		chai.request(server)
-			.get('/single-book/')
-	    .query({})
+			.post('/add-comment/' + id)
+			.set('content-type', 'application/x-www-form-urlencoded')
+			.send({ comment : 'This is a new comment' })
 			.end((err, res) => {
-				console.log(res.text)
+				const dom = new JSDOM(res.text)
+				let output = dom.window.document.body.querySelector('.comment-section').textContent
 				assert.equal(res.status, 200)
+				assert.isNotEmpty(output)
 				done()
 			})
 	})
