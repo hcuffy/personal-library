@@ -1,9 +1,16 @@
 const Book = require('../models/book')
 
 exports.addBook = (req, res, next) => {
+
+	if (Object.keys(req.body).length === 0 && req.body.constructor === Object){
+		res.end('Missing request body.')
+		return
+	}
+	
 	const {
 		title
 	} = req.body
+
 	const newBook = new Book({
 		title,
 		comment: []
