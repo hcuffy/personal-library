@@ -3,10 +3,10 @@ const Book = require('../models/book')
 exports.addBook = (req, res, next) => {
 
 	if (Object.keys(req.body).length === 0 && req.body.constructor === Object){
-		res.end('Missing request body.')
+		res.end('Missing request title.')
 		return
 	}
-	
+
 	const {
 		title
 	} = req.body
@@ -24,6 +24,10 @@ exports.addBook = (req, res, next) => {
 }
 
 exports.getABook = (req, res, next) => {
+	if (Object.keys(req.query).length === 0 && req.query.constructor === Object || req.query.id == undefined){
+		res.end('No id was was given.')
+		return
+	}
 	Book.findById(req.query.id, (err, book) => {
 		if (err) {
 			return next(err)
