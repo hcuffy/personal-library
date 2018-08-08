@@ -19,17 +19,18 @@ describe('functional tests', () =>  {
 // 		})
 // })
 
-	it('should not add book with no title', (done) =>  {
-		chai.request(server)
-			.post('/new/book/')
-			.set('content-type', 'application/x-www-form-urlencoded')
-			.send({})
-			.end((err, res) => {
-				console.log(res.text)
-				assert.equal(res.status, 200)
-				done()
-			})
-	})
+	// it('should not add book with no title', (done) =>  {
+	// 	chai.request(server)
+	// 		.post('/new/book/')
+	// 		.set('content-type', 'application/x-www-form-urlencoded')
+	// 		.send({})
+	// 		.end((err, res) => {
+	// 			console.log(res.text)
+	// 			assert.equal(res.status, 200)
+	// 			assert.equal(res.text, 'Missing request title.')
+	// 			done()
+	// 		})
+	// })
 
 	// it('should get all books', (done) =>  {
 	// 	chai.request(server)
@@ -42,5 +43,26 @@ describe('functional tests', () =>  {
 	// 			done()
 	// 		})
 	// })
+
+	// it('should get book by id', (done) =>  {
+	// 	chai.request(server)
+	// 		.get('/single-book/')
+	//     .query({ id : '5b6a7db30469c04f7d3164e7' })
+	// 		.end((err, res) => {
+	// 			assert.equal(res.status, 200)
+	// 			done()
+	// 		})
+	// })
+
+	it('should not get book without id', (done) =>  {
+		chai.request(server)
+			.get('/single-book/')
+	    .query({})
+			.end((err, res) => {
+				console.log(res.text)
+				assert.equal(res.status, 200)
+				done()
+			})
+	})
 
 })
